@@ -88,13 +88,14 @@ function MewlaConverter() {
 
   return (
     <div>
-      <form id="cash-calculator">
+      <form id="cash-calculator" onSubmit={handleSubmit}>
         <div className="cash-line">
           <label htmlFor="amountCharged">We need</label>
           <input
             id="amountCharged"
             name="amountCharged"
             type="number"
+            aria-label="Amount Charged"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setAmountCharged(Number(e.target.value))
             }
@@ -107,13 +108,14 @@ function MewlaConverter() {
             id="amountTendered"
             name="amountTendered"
             type="number"
+            aria-label="Amount Tendered"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setAmountTendered(Number(e.target.value))
             }
           />
           <span className="cash-line-note">Mewla</span>
         </div>
-        <button id="calculate" type="submit" onClick={handleSubmit}>
+        <button id="calculate" type="submit">
           Calculate Change
         </button>
       </form>

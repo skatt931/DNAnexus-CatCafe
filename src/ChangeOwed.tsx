@@ -1,19 +1,38 @@
 import React from "react";
-import fetch from "isomorphic-fetch";
 
-type Props = {
-  change: Record<string, any>;
+type ChangeOwnedProps = {
+  change: Record<string, number>;
+  message: string;
 };
 
-function ChangeOwed({change}: Props) {
-  // ---
-  // Implement your change renderer in this component.
-  // Change is passed in via this.props.change.
-  // Note you may need to use more lifecycle methods!
-  //
-
-  // Return your renderer here
-  return <div />;
+function ChangeOwed({change, message}: ChangeOwnedProps) {
+  return (
+    <div className="customer-change-container">
+      <div className="customer-change-title">
+        {message ? "You paid the exact amount!" : "Customer Change"}
+      </div>
+      {message && (
+        <div className="cat-fact-container">
+          <div className="cat-fact-title">Here is a cat fact for you:</div>
+          <div className="cat-fact-message">{message}</div>
+        </div>
+      )}
+      <div className="customer-change-content">
+        {Object.entries(change)
+          .reverse()
+          .map(([denomination, count]) => {
+            return (
+              count > 0 && (
+                <div className="change-item" key={denomination}>
+                  <div className="change-number">{count}</div>
+                  <div className="change-detail">{denomination} Mewla</div>
+                </div>
+              )
+            );
+          })}
+      </div>
+    </div>
+  );
 }
 
 export default ChangeOwed;

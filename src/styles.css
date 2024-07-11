@@ -1,6 +1,8 @@
+body,
 .App {
   font-family: "Helvetica Neue", Arial, sans-serif;
   margin: 0px;
+  padding: 0px;
 }
 
 header {
@@ -30,6 +32,9 @@ img#head-cat {
 
 #tagline,
 #cash-calculator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -37,11 +42,14 @@ img#head-cat {
 
 .cash-line {
   margin: 8px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .cash-line label {
   text-align: right;
   float: left;
+  align-self: center;
 }
 
 .cash-line .currency-name {
@@ -71,6 +79,9 @@ button#calculate:hover {
 .cash-line input,
 button#calculate {
   width: 160px;
+  margin-left: 10px;
+  box-sizing: border-box;
+  margin: 0px 10px;
 }
 
 /*
@@ -78,3 +89,76 @@ button#calculate {
   Add your custom CSS below this line
   ---
 */
+
+/* Mewla converter */
+.cash-line span {
+  margin-left: 5px;
+  font-size: small;
+  text-align: left;
+  align-self: center;
+}
+
+/* Change Owned */
+.customer-change-container {
+  width: auto;
+  margin: 20px auto;
+  background-color: rgba(240, 248, 255, 0.8);
+  padding: 20px;
+  border-radius: 5px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0px 0px 5px 0px #ddd9d9;
+  border: 2px solid #ddd9d9;
+}
+
+.customer-change-title {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.customer-change-content {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.change-item {
+  background-color: #ffffff;
+  padding: 10px;
+  width: 70px;
+  text-align: center;
+}
+
+.change-number {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.cat-fact-container {
+  display: block;
+  text-align: center;
+}
+
+.change-detail {
+  font-size: 12px;
+  color: #888888;
+  margin-top: 5px;
+}
+
+.cat-fact-title {
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #888888;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

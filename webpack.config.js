@@ -34,6 +34,8 @@ module.exports = {
   ],
   mode: "development",
   devServer: {
+    compress: true,
+    allowedHosts: "all",
     static: {
       directory: path.join(__dirname, "dist")
     },
